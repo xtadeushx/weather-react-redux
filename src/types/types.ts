@@ -12,3 +12,7 @@ export interface Iitem  {
     temp_night: string;
     info: string;
   }
+
+  export interface ITab {
+    value: string
+  }

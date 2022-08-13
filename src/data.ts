@@ -1,4 +1,4 @@
-import { IDay, Iitem } from './types/types';
+import { IDay, Iitem, ITab } from './types/types';
 
 export const items: Iitem[] = [
   {
@@ -81,5 +81,19 @@ export const days: IDay[] = [
     temp_day: '+18',
     temp_night: '+15',
     info: 'Облачно',
+  },
+];
+
+
+
+export const tabs : ITab[]= [
+  {
+    value: 'На неделю',
+  },
+  {
+    value: 'На 10 дней',
+  },
+  {
+    value: 'На месяц',
   },
 ];
