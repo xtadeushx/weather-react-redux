@@ -4,7 +4,7 @@ interface Props {
   id: string;
 }
 
-export const GlobalSvgSelector = ({ id }: Props) => {
+export const GlobalSvgSelector = ({ id}: Props) => {
   switch (id) {
     case 'header-logo':
       return (
@@ -51,7 +51,7 @@ export const GlobalSvgSelector = ({ id }: Props) => {
       );
     case 'change-theme':
       return (
-        <svg
+        <svg 
           width="35"
           height="35"
           viewBox="0 0 35 35"

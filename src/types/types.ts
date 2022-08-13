@@ -16,3 +16,8 @@ export interface Iitem  {
   export interface ITab {
     value: string
   }
+
+  export interface IThemeContext {
+    theme: string;
+    changeTheme: (theme:string) => void;
+  }
