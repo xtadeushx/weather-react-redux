@@ -3,3 +3,12 @@ export interface Iitem  {
     name: string
     value: string
   }
+
+  export interface IDay {
+    day: string;
+    day_info: string;
+    icon_id: string;
+    temp_day: string;
+    temp_night: string;
+    info: string;
+  }
