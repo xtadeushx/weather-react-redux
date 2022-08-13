@@ -3,8 +3,13 @@ import { IndicatorSvgSelector } from '../../../../assets/icons/indicators/Indica
 import { Iitem } from '../../../../types/types';
 import s from './ThisDayInfo.module.scss';
 
+interface ThisDayItemProps {
+  icon_id: string;
+  name: string;
+  value: string;
+}
 
-const ThisDayItem = ({icon_id,name,value}: Iitem) => {
+const ThisDayItem = ({icon_id,name,value}:ThisDayItemProps) => {
   return (
     <div className={s.item}>
       <div className={s.indicator}>

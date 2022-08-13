@@ -1,4 +1,6 @@
 import React from 'react';
+import { days, items } from '../../data';
+import Popup from '../../shared/Popup/Popup';
 import { Days } from './components/Days/Days';
 import { Tabs } from './components/Days/Tabs';
 import { ThisDay } from './components/ThisDay/ThisDay';
@@ -17,6 +19,7 @@ const Home = (props: Props) => {
         </div>
         <Tabs/>
         <Days />
+      
       </div>
     </>
   );
