@@ -23,3 +23,7 @@ export interface Iitem  {
     theme: Theme;
     changeTheme: (theme:Theme) => void;
   }
+
+  export type Weather =  {
+
+  }
