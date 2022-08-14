@@ -1,3 +1,5 @@
+import { Theme } from "../context/ThemeContext";
+
 export interface Iitem  {
     icon_id: string
     name: string
@@ -18,6 +20,6 @@ export interface Iitem  {
   }
 
   export interface IThemeContext {
-    theme: string;
-    changeTheme: (theme:string) => void;
+    theme: Theme;
+    changeTheme: (theme:Theme) => void;
   }
