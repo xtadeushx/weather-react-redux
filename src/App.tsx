@@ -10,26 +10,29 @@ import { useLocalStorage } from './hooks/useLocalStorage';
 export const cityContext = createContext({});
 
 function App() {
-// add city to localStorage
+  // add city to localStorage
   // const [city, setCity] = useLocalStorage([], 'city')
 
+  const [isClose, setClose] = useState(false)
+
+  const onClose = () => setClose(false);
+  const onOpen = () => setClose(true);
 
 
- 
   return (
     <div className="global-container">
-        {/* <Popup items={items}/> */}
+      {isClose && <Popup onClose={onClose} />}
       <div className="container">
-    
-         <Header title="React weather"/>
+
+        <Header title="React weather" onOpen={onOpen} />
 
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/month-statistic" element={<MonthStatistic />} />
         </Routes>
-      
-       
-     
+
+
+
       </div>
     </div>
   );

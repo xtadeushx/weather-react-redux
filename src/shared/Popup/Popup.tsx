@@ -4,29 +4,67 @@ import s from './Popup.module.scss';
 import { IDay, Iitem } from '../../types/types';
 import { GlobalSvgSelector } from '../../assets/icons/global/GlobalSvgSelector';
 import { items } from '../../data';
+import { useCity } from '../../hooks/useCity';
+import { CurrentDate } from '../../services/CuurentDate';
+import { useCustomSelector } from '../../hooks/storeHooks';
+import { windDirection, windStrength } from '../../services/windDirection';
 
 type PopupProps = {
-  items: Iitem[];
+  onClose:()=>void;
 };
 
-const Popup = ({items}: PopupProps) => {
+const Popup = ({onClose}:PopupProps) => {
+const {weather} = useCustomSelector(state=> state.currentWeatherSlice)
+
+  const {city} = useCity();
+
+  const currentDay = new CurrentDate(new Date());
+  const weekDay = currentDay.getDay();
+  const time = currentDay.getTime();
+  const icon = weather.weather[0]['icon']
+
+  const {feels_like,humidity,pressure,temp} = weather.main;
+  const dascription  = weather.weather[0]['description']
+  const {deg,speed} = weather.wind;
+
+   const items: Iitem[] = [
+    {
+      icon_id: 'temp',
+      name: 'Температура',
+      value: `${Math.floor(temp)}° - відчувається як ${Math.floor(feels_like)}°`,
+    },
+    {
+      icon_id: 'pressure',
+      name: 'Тиск',
+      value: `${pressure} мм ртутного стовпця - нормальне`,
+    },
+    {
+      icon_id: 'precipitation',
+      name: 'Опади',
+      value: `${dascription}`,
+    },
+    {
+      icon_id: 'wind',
+      name: 'Вітер',
+      value: `${speed} м/с 🧭 ${windDirection(deg)} - ${windStrength(speed)} вітер`,
+    },
+  ];
 
   return (
     <> 
-    
       <div className={s.blur}></div>
       <div className={s.popup}>
         <div className={s.day}>
-          <div className={s.day__temp}>20°</div>
-          <div className={s.day__name}>Среда</div>
+          <div className={s.day__temp}>{Math.floor(weather.main.temp)}°</div>
+          <div className={s.day__name}>{weekDay}</div>
           <div className={s.img}>
-            <GlobalSvgSelector id="sun" />
+          {icon ? <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`}></img> : <GlobalSvgSelector id={'sun'} />}
           </div>
           <div className={s.day__time}>
-            Время: <span>21:54</span>
+            Time: <span>{time}</span>
           </div>
           <div className={s.day__city}>
-            Время: <span>Kiev</span>
+            City: <span>{city}</span>
           </div>
         </div>
         <div className={s.this__day_info_items}>
@@ -36,7 +74,7 @@ const Popup = ({items}: PopupProps) => {
           
           )}
         </div>
-        <div className={s.close}>
+        <div className={s.close} onClick={onClose}>
           <GlobalSvgSelector id="close" />
         </div>
       </div>

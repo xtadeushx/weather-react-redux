@@ -3,6 +3,7 @@
 .popup {
   position: absolute;
   top: 50%;
+  transform: translate(0,-50%);
   left: calc(50% - 325px);
   z-index: 1001;
   display: flex;
@@ -53,6 +54,7 @@
     line-height: 30px;
     color: #000000;
     margin-bottom: 12px;
+    text-transform: capitalize;
   }
   .img {
     svg {
@@ -66,5 +68,8 @@
   .day__city {
     font-size: 15px;
     color: $base-color;
+  }
+  .day__city {
+    text-transform: capitalize;
   }
 }

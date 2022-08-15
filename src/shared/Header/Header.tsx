@@ -8,9 +8,10 @@ import { useCity } from '../../hooks/useCity';
 
 type HeaderProps = {
   title: string;
+  onOpen: () => void;
 };
 
-const Header = ({ title}: HeaderProps) => {
+const Header = ({ title,onOpen}: HeaderProps) => {
   const [value, setValue] = useState({ value: 'city-1', label: 'London' });
   const { theme, changeTheme } = useTheme();
 
@@ -44,7 +45,7 @@ const Header = ({ title}: HeaderProps) => {
   return (
     <header className={s.header}>
       <div className={s.wrapper}>
-        <div className={s.logo}>
+        <div className={s.logo} onClick={onOpen}>
           <GlobalSvgSelector id="header-logo" />
         </div>
         <div className={s.title}>{title}</div>

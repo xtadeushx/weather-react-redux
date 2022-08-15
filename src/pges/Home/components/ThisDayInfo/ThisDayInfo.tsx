@@ -38,14 +38,10 @@ const TThisDayInfo = ({weather}: TThisDayInfoProps) => {
       value: `${speed} м/с 🧭 ${windDirection(deg)} - ${windStrength(speed)} вітер`,
     },
   ];
-  
   return (
     <div className={s.this__day_info}>
     <div className={s.this__day_info_items}>
-
-
 {items.map((item) => <ThisDayItem key={item.icon_id} {...item}/>)}
-
       </div>
       <img className={s.cloud__img} src={clouds} alt="clouds" />
     </div>
