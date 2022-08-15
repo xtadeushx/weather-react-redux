@@ -6,7 +6,7 @@ import { Weather } from '../types/types';
 // const API_KEY = process.env.REACT_APP_API_KEY;
 
 export class WeatherSErvice {
-  static getCurrentWeather(city: string):Promise<AxiosResponse<Weather>> {
-    return api.get(`/weather?q=${city}&lang=ua`);
+  static getCurrentWeather(city: string, lang:string = 'ua'):Promise<AxiosResponse<Weather>> {
+    return api.get(`/weather?q=${city}&lang=${lang}`);
   }
 }

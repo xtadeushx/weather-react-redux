@@ -6,6 +6,7 @@ import App from './App';
 import { ThemeProvider } from './provider/ThemeProvider';
 import './styles/index.scss';
 import { store } from './store/store';
+import { CityProvider } from './provider/CityProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
@@ -13,7 +14,9 @@ root.render(
     <BrowserRouter>
       <React.StrictMode>
         <ThemeProvider>
+          <CityProvider>
           <App />
+          </CityProvider>
         </ThemeProvider>
       </React.StrictMode>
     </BrowserRouter>

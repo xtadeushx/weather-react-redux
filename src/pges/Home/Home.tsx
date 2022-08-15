@@ -17,7 +17,6 @@ const dispatch = useCustomDispatch();
 
 useEffect(() => {
   dispatch(fetchCurrentWeatherApi('Paris'));
-  console.log(weather);
 }, [])
 
 

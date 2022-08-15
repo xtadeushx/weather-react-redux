@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { GlobalSvgSelector } from '../../../../assets/icons/global/GlobalSvgSelector';
+import { useCity } from '../../../../hooks/useCity';
 import { CurrentDate } from '../../../../services/CuurentDate';
 import { Weather } from '../../../../types/types';
 import s from './ThisDay.module.scss';
@@ -9,9 +10,13 @@ type ThisDayProps = {
 }
 
 const ThisDay = ({ weather }: ThisDayProps) => {
+
+  const {city} = useCity();
+
   const currentDay = new CurrentDate(new Date());
   let weekDay = currentDay.getDay();
   let time = currentDay.getTime();
+
   const icon = weather.weather[0]['icon']
   return (
     <div className={s.this__day}>
@@ -25,7 +30,7 @@ const ThisDay = ({ weather }: ThisDayProps) => {
       </div>
       <div className={s.bottom__block}>
         <div className={s.this__time}>Time: <span>{time}</span>    </div>
-        <div className={s.this__city}>City: Kiev</div>
+        <div className={s.this__city}>City: {city}</div>
       </div>
     </div>
   )
