@@ -30,7 +30,7 @@ export const currentWeatherSlice = createSlice({
         state.isLoading = true;
     },
     fetchCurrentWeatherSuccess(state:CurrentWeather, action:PayloadAction<AxiosResponse<Weather>>){
-        state.weather = action.payload;
+        state.weather = action.payload.data;
         state.isLoading = false;
         state.response = {
             status: action.payload.status,
@@ -48,4 +48,6 @@ export const currentWeatherSlice = createSlice({
 });
 
 
-export const {fetchCurrentWeather,fetchCurrentWeatherSuccess, fetchCurrentWeatherError} = currentWeatherSlice.actions
+export const {fetchCurrentWeather,fetchCurrentWeatherSuccess, fetchCurrentWeatherError} = currentWeatherSlice.actions;
+
+export default currentWeatherSlice.reducer;
