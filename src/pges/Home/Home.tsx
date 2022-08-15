@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { days, items } from '../../data';
+import { days } from '../../data';
 import { useCustomDispatch, useCustomSelector } from '../../hooks/storeHooks';
 import Popup from '../../shared/Popup/Popup';
 import { fetchCurrentWeatherApi } from '../../store/thunks/fetchCurrentWeather';

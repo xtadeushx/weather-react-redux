@@ -2,7 +2,7 @@ import React from 'react'
 import s from './ThisDayInfo.module.scss';
 import clouds from '../../../../assets/images/cloud.png'
 import ThisDayItem from './ThisDayItem';
-import { items } from '../../../../data';
+// import { items } from '../../../../data';
 import { Iitem, Weather } from '../../../../types/types';
 import { windDirection, windStrength } from '../../../../services/windDirection';
 
@@ -13,6 +13,7 @@ type TThisDayInfoProps = {
 
 const TThisDayInfo = ({weather}: TThisDayInfoProps) => {
   const {feels_like,humidity,pressure,temp} = weather.main;
+  const dascription  = weather.weather[0]['description']
   const {deg,speed} = weather.wind;
 
    const items: Iitem[] = [
@@ -29,7 +30,7 @@ const TThisDayInfo = ({weather}: TThisDayInfoProps) => {
     {
       icon_id: 'precipitation',
       name: 'Опади',
-      value: 'Без опадів',
+      value: `${dascription}`,
     },
     {
       icon_id: 'wind',

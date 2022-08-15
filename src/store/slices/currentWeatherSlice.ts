@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AxiosResponse } from 'axios';
+import { Days } from '../../pges/Home/components/Days/Days';
 import { Weather } from '../../types/types';
 
 type CurrentWeather = {
@@ -26,7 +27,13 @@ type Response = {
     wind:{
       deg: 90,
       speed: 0,
-    }
+    },
+    weather:[
+        {
+          icon: '',
+          description: ''
+        },
+      ]
     
   },
   isLoading: false,

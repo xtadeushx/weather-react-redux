@@ -7,6 +7,6 @@ import { Weather } from '../types/types';
 
 export class WeatherSErvice {
   static getCurrentWeather(city: string):Promise<AxiosResponse<Weather>> {
-    return api.get(`/weather?q=${city}`);
+    return api.get(`/weather?q=${city}&lang=ua`);
   }
 }

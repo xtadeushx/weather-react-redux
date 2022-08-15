@@ -32,9 +32,15 @@ export type Weather = {
     pressure: number;
     temp_max: number;
     temp_min: number;
-  },
-  wind:{
-    speed:number,
-    deg: number
-  }
+  };
+  wind: {
+    speed: number;
+    deg: number;
+  };
+  weather: [
+    {
+      icon: string;
+      description: string;
+    },
+  ];
 };
